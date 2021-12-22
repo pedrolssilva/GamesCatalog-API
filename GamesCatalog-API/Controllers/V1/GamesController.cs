@@ -1,4 +1,5 @@
-﻿using GamesCatalog_API.InputModel;
+﻿using GamesCatalog_API.Exceptions;
+using GamesCatalog_API.InputModel;
 using GamesCatalog_API.Services;
 using GamesCatalog_API.ViewModel;
 using Microsoft.AspNetCore.Mvc;
@@ -85,8 +86,7 @@ namespace GamesCatalog_API.Controllers.V1
 
                 return Ok();
             }
-            //catch (GameNotRegisteredException ex)
-            catch (Exception ex)
+            catch (GameNotRegisteredException ex)
             {
                 return NotFound("This game is not registered.");
             }
@@ -100,8 +100,7 @@ namespace GamesCatalog_API.Controllers.V1
                 await _gameService.Remove(gameId);
                 return Ok();
             }
-            //catch (GameNotRegisteredException ex)
-            catch (Exception ex)
+            catch (GameNotRegisteredException ex)
             {
                 return NotFound("This game is not registered.");
 
