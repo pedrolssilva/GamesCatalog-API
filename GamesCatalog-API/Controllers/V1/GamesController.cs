@@ -92,7 +92,7 @@ namespace GamesCatalog_API.Controllers.V1
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{gameId:guid}")]
         public async Task<ActionResult> DeleteGame([FromRoute] Guid gameId)
         {
             try

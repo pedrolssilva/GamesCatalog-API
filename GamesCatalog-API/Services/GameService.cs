@@ -106,7 +106,7 @@ namespace GamesCatalog_API.Services
 
         public async Task Remove(Guid id)
         {
-            var game = _gameRepository.Get(id);
+            var game = await _gameRepository.Get(id);
 
             if (game == null)
             {

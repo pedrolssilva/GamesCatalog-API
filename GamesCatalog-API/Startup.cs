@@ -29,7 +29,7 @@ namespace GamesCatalog_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IGameService, GameService>();
-            services.AddScoped<IGameRepository, GameRepository>();
+            services.AddScoped<IGameRepository, GameSqlServerRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
