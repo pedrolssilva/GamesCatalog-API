@@ -20,6 +20,16 @@ namespace GamesCatalog_API.Controllers.V1
             _gameService = gameService;
         }
 
+        /// <summary>
+        /// Search all games by pagination
+        /// </summary>
+        /// <remarks>
+        /// It's not possible to return games without pagination.
+        /// </remarks>
+        /// <param name="page">Indicates which page is been required. Minumum 1</param>
+        /// <param name="quantity">Indicates the quantity of registers by page. Minumum 1 e maximum 50</param>
+        /// <response code="200">Returns a game list</response>
+        /// <response code="204">Case there are not games</response>   
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GameViewModel>>> Get([FromQuery, Range(1, int.MaxValue)] int page = 1, [FromQuery, Range(1, 50)] int quantity = 5)
         {
@@ -32,8 +42,15 @@ namespace GamesCatalog_API.Controllers.V1
             return Ok(games);
         }
 
+
+        /// <summary>
+        /// Search a game by Id
+        /// </summary>
+        /// <param name="gameId">game id to search</param>
+        /// <response code="200">Return a filtered game</response>
+        /// <response code="204">Case there is no game with this id</response>   
         [HttpGet("{gameId:guid}")]
-        public async Task<ActionResult<GameViewModel>> Get([FromQuery] Guid gameId)
+        public async Task<ActionResult<GameViewModel>> Get([FromRoute] Guid gameId)
         {
             var game = await _gameService.Get(gameId);
             if (game == null)

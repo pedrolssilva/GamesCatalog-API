@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GamesCatalog-API</name>
+    </assembly>
+    <members>
+        <member name="M:GamesCatalog_API.Controllers.V1.GamesController.Get(System.Int32,System.Int32)">
+            <summary>
+            Search all games by pagination
+            </summary>
+            <remarks>
+            It's not possible to return games without pagination.
+            </remarks>
+            <param name="page">Indicates which page is been required. Minumum 1</param>
+            <param name="quantity">Indicates the quantity of registers by page. Minumum 1 e maximum 50</param>
+            <response code="200">Returns a game list</response>
+            <response code="204">Case there are not games</response>   
+        </member>
+        <member name="M:GamesCatalog_API.Controllers.V1.GamesController.Get(System.Guid)">
+            <summary>
+            Search a game by Id
+            </summary>
+            <param name="gameId">game id to search</param>
+            <response code="200">Return a filtered game</response>
+            <response code="204">Case there is no game with this id</response>   
+        </member>
+    </members>
+</doc>

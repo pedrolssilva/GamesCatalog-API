@@ -5,6 +5,11 @@
     <RootNamespace>GamesCatalog_API</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\GitHubPedro\DIO-TakeBlip-Bootcamp\Course-Creating_a_games_catalog-using-good-practices\GamesCatalog-API\GamesCatalog-API\GamesCatalog-API.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
